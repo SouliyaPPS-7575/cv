@@ -14,13 +14,5 @@ export default defineConfig({
         projects: ['./tsconfig.json'],
       }),
     ],
-    optimizeDeps: {
-      exclude: ['@tanstack/start-client'],
-    },
-    build: {
-      rollupOptions: {
-        external: ['node:fs', 'node:path'],
-      },
-    },
   },
 });
