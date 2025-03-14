@@ -19,12 +19,15 @@ import 'react/jsx-runtime';
 import '@tanstack/react-query';
 import '@tanstack/react-router';
 import '@tanstack/react-router-with-query';
+import '@heroui/react';
 import '@tanstack/react-query-devtools';
 import '@tanstack/react-router-devtools';
 import 'react';
-import 'jsesc';
+import 'class-variance-authority';
+import 'clsx';
+import 'tailwind-merge';
+import '@heroicons/react/24/outline';
 import 'isbot';
 import 'react-dom/server';
-import 'node:stream/web';
 import 'node:async_hooks';
 //# sourceMappingURL=main.mjs.map

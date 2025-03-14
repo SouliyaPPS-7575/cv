@@ -1,14 +1,19 @@
+import { HeroUIProvider } from '@heroui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import {
   HeadContent,
+  NavigateOptions,
   Outlet,
   Scripts,
+  ToOptions,
   createRootRouteWithContext,
+  useRouter,
 } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 import * as React from 'react';
 import { DefaultCatchBoundary } from '~/components/DefaultCatchBoundary';
+import { Header } from '~/components/header';
 import { NotFound } from '~/components/NotFound';
 import { ThemeProvider } from '~/components/theme-provider';
 import appCss from '~/styles/app.css?url';
@@ -27,9 +32,8 @@ export const Route = createRootRouteWithContext<{
         content: 'width=device-width, initial-scale=1',
       },
       ...seo({
-        title:
-          'TanStack Start | Type-Safe, Client-First, Full-Stack React Framework',
-        description: `TanStack Start is a type-safe, client-first, full-stack React framework. `,
+        title: 'Souliya Phoupaseuth | Web Developer',
+        description: `Portfolio website of Souliya Phoupaseuth, a Web Front-End Developer specializing in React, TypeScript, and modern web technologies.`,
       }),
     ],
     links: [
@@ -69,13 +73,22 @@ export const Route = createRootRouteWithContext<{
 function RootComponent() {
   return (
     <RootDocument>
+      <Header />
       <Outlet />
     </RootDocument>
   );
 }
 
+declare module '@react-types/shared' {
+  interface RouterConfig {
+    href: ToOptions['to'];
+    routerOptions: Omit<NavigateOptions, keyof ToOptions>;
+  }
+}
+
 function RootDocument({ children }: { children: React.ReactNode }) {
   const queryClient = new QueryClient();
+  let router = useRouter();
 
   return (
     <html>
@@ -84,9 +97,14 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <QueryClientProvider client={queryClient}>
-          <ThemeProvider defaultTheme='light' storageKey='portfolio-theme'>
-            {children}
-          </ThemeProvider>
+          <HeroUIProvider
+            navigate={(to, options) => router.navigate({ to, ...options })}
+            useHref={(to) => router.buildLocation({ to }).href}
+          >
+            <ThemeProvider defaultTheme='light' storageKey='portfolio-theme'>
+              {children}
+            </ThemeProvider>
+          </HeroUIProvider>
           <TanStackRouterDevtools position='bottom-right' />
           <ReactQueryDevtools buttonPosition='bottom-left' />
         </QueryClientProvider>
