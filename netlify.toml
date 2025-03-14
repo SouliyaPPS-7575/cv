@@ -1,7 +1,12 @@
 [build]
-command = "bun run build --preset netlify"
-publish = ".netlify"
+  command = "bun run build --preset netlify"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[edge_functions]]
-function = "ssr"
-path = "/*"
+  function = "ssr"
+  path = "/*"

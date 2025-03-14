@@ -18,6 +18,12 @@ export function createRouter() {
       context: { queryClient },
       defaultPreload: 'intent',
       defaultErrorComponent: DefaultCatchBoundary,
+      // Add this to handle client-side routing properly
+      defaultPendingComponent: () => (
+        <div className='flex items-center justify-center h-screen'>
+          <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary'></div>
+        </div>
+      ),
       defaultNotFoundComponent: () => <NotFound />,
     }),
     queryClient
