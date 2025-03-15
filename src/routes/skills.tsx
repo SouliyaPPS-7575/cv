@@ -1,14 +1,39 @@
 import { createFileRoute } from '@tanstack/react-router';
 import {
-  CodeBracketIcon,
   GlobeAltIcon,
   ServerIcon,
   DevicePhoneMobileIcon,
   PaintBrushIcon,
-  CommandLineIcon,
-  CircleStackIcon,
+  SparklesIcon,
 } from '@heroicons/react/24/outline';
 import { Card, CardContent } from '@/components/ui/card';
+import {
+  ExternalLink,
+  Code,
+  FileJson,
+  Braces,
+  LayoutGrid,
+  Workflow,
+  Boxes,
+  Layers,
+  Rocket,
+  Paintbrush,
+  Palette,
+  SquareStack,
+  Database,
+  Server,
+  Github,
+  Gitlab,
+  Terminal,
+  MonitorSmartphone,
+  Smartphone,
+  Sparkles,
+  Brain,
+  Bot,
+  Cpu,
+  Flame,
+  Zap,
+} from 'lucide-react';
 
 export const Route = createFileRoute('/skills')({
   component: SkillsPage,
@@ -16,54 +41,269 @@ export const Route = createFileRoute('/skills')({
 
 export function SkillsPage() {
   const frontendSkills = [
-    { name: 'JavaScript', icon: <CodeBracketIcon className='h-6 w-6' /> },
-    { name: 'TypeScript', icon: <CodeBracketIcon className='h-6 w-6' /> },
-    { name: 'React.js', icon: <GlobeAltIcon className='h-6 w-6' /> },
-    { name: 'Next.js', icon: <ServerIcon className='h-6 w-6' /> },
-    { name: 'HTML/CSS', icon: <CodeBracketIcon className='h-6 w-6' /> },
-    { name: 'Tailwind CSS', icon: <PaintBrushIcon className='h-6 w-6' /> },
-    { name: 'Ant Design UI', icon: <PaintBrushIcon className='h-6 w-6' /> },
-    { name: 'Material UI', icon: <PaintBrushIcon className='h-6 w-6' /> },
-    { name: 'React Redux', icon: <GlobeAltIcon className='h-6 w-6' /> },
-    { name: 'Tanstack Query', icon: <CircleStackIcon className='h-6 w-6' /> },
-    { name: 'Tanstack Router', icon: <GlobeAltIcon className='h-6 w-6' /> },
-    { name: 'TRPC', icon: <ServerIcon className='h-6 w-6' /> },
-    { name: 'Vinxi', icon: <ServerIcon className='h-6 w-6' /> },
+    {
+      name: 'HTML/CSS',
+      icon: <Code className='h-6 w-6' />,
+      url: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+    },
+    {
+      name: 'JavaScript',
+      icon: <Braces className='h-6 w-6' />,
+      url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    },
+    {
+      name: 'TypeScript',
+      icon: <FileJson className='h-6 w-6' />,
+      url: 'https://www.typescriptlang.org/',
+    },
+    {
+      name: 'React.js',
+      icon: <Workflow className='h-6 w-6' />,
+      url: 'https://react.dev/',
+    },
+    {
+      name: 'Tanstack Start',
+      icon: <LayoutGrid className='h-6 w-6' />,
+      url: 'https://tanstack.com/',
+    },
+    {
+      name: 'Next.js',
+      icon: <Rocket className='h-6 w-6' />,
+      url: 'https://nextjs.org/',
+    },
+    {
+      name: 'TRPC',
+      icon: <Boxes className='h-6 w-6' />,
+      url: 'https://trpc.io/',
+    },
+    {
+      name: 'Vinxi',
+      icon: <Zap className='h-6 w-6' />,
+      url: 'https://github.com/nksaraf/vinxi',
+    },
+    {
+      name: 'Bun',
+      icon: <Flame className='h-6 w-6' />,
+      url: 'https://bun.sh/',
+    },
+    {
+      name: 'Tailwind CSS',
+      icon: <Paintbrush className='h-6 w-6' />,
+      url: 'https://tailwindcss.com/',
+    },
+    {
+      name: 'HeroUI',
+      icon: <Palette className='h-6 w-6' />,
+      url: 'https://www.heroui.com/',
+    },
+    {
+      name: 'Ant Design UI',
+      icon: <SquareStack className='h-6 w-6' />,
+      url: 'https://ant.design/',
+    },
+    {
+      name: 'Material UI',
+      icon: <Layers className='h-6 w-6' />,
+      url: 'https://mui.com/',
+    },
+    {
+      name: 'Tanstack Query',
+      icon: <LayoutGrid className='h-6 w-6' />,
+      url: 'https://tanstack.com/query/latest',
+    },
+    {
+      name: 'Tanstack Router',
+      icon: <LayoutGrid className='h-6 w-6' />,
+      url: 'https://tanstack.com/router/latest',
+    },
+    {
+      name: 'React Redux',
+      icon: <Workflow className='h-6 w-6' />,
+      url: 'https://redux.js.org/',
+    },
   ];
 
   const backendSkills = [
-    { name: 'Node.js', icon: <CommandLineIcon className='h-6 w-6' /> },
-    { name: 'Golang', icon: <CommandLineIcon className='h-6 w-6' /> },
-    { name: 'Supabase', icon: <CircleStackIcon className='h-6 w-6' /> },
-    { name: 'Firebase', icon: <CircleStackIcon className='h-6 w-6' /> },
-    { name: 'MongoDB', icon: <CircleStackIcon className='h-6 w-6' /> },
-    { name: 'MySQL', icon: <CircleStackIcon className='h-6 w-6' /> },
-    { name: 'PostgreSQL', icon: <CircleStackIcon className='h-6 w-6' /> },
+    {
+      name: 'Supabase',
+      icon: <Database className='h-6 w-6' />,
+      url: 'https://supabase.com/',
+    },
+    {
+      name: 'PocketBase',
+      icon: <Database className='h-6 w-6' />,
+      url: 'https://pocketbase.io/',
+    },
+    {
+      name: 'Firebase',
+      icon: <Flame className='h-6 w-6' />,
+      url: 'https://firebase.google.com/',
+    },
+    {
+      name: 'MongoDB',
+      icon: <Database className='h-6 w-6' />,
+      url: 'https://www.mongodb.com/',
+    },
+    {
+      name: 'HiveDB',
+      icon: <Database className='h-6 w-6' />,
+      url: 'https://hivedb.dev/',
+    },
+    {
+      name: 'MySQL',
+      icon: <Database className='h-6 w-6' />,
+      url: 'https://www.mysql.com/',
+    },
+    {
+      name: 'PostgreSQL',
+      icon: <Database className='h-6 w-6' />,
+      url: 'https://www.postgresql.org/',
+    },
+    {
+      name: 'Node.js',
+      icon: <Server className='h-6 w-6' />,
+      url: 'https://nodejs.org/',
+    },
+    {
+      name: 'Golang',
+      icon: <Terminal className='h-6 w-6' />,
+      url: 'https://golang.org/',
+    },
   ];
 
   const mobileSkills = [
     {
-      name: 'Flutter/Dart',
-      icon: <DevicePhoneMobileIcon className='h-6 w-6' />,
-    },
-    { name: 'HiveDB', icon: <CircleStackIcon className='h-6 w-6' /> },
-    {
       name: 'React Native',
-      icon: <DevicePhoneMobileIcon className='h-6 w-6' />,
+      icon: <Smartphone className='h-6 w-6' />,
+      url: 'https://reactnative.dev/',
+    },
+    {
+      name: 'Flutter/Dart',
+      icon: <MonitorSmartphone className='h-6 w-6' />,
+      url: 'https://flutter.dev/',
+    },
+    {
+      name: 'AppSheet',
+      icon: <Smartphone className='h-6 w-6' />,
+      url: 'https://www.appsheet.com/',
+    },
+  ];
+
+  // AI skills section with specific icons and URLs
+  const aiSkills = [
+    {
+      name: 'OpenAI GPT',
+      icon: <Brain className='h-6 w-6' />,
+      url: 'https://openai.com/',
+    },
+    {
+      name: 'v0.dev AI',
+      icon: <Sparkles className='h-6 w-6' />,
+      url: 'https://v0.dev/',
+    },
+    {
+      name: 'Claude AI',
+      icon: <Bot className='h-6 w-6' />,
+      url: 'https://claude.ai/',
+    },
+    {
+      name: 'LangChain',
+      icon: <Workflow className='h-6 w-6' />,
+      url: 'https://langchain.com/',
+    },
+    {
+      name: 'Hugging Face',
+      icon: <Sparkles className='h-6 w-6' />,
+      url: 'https://huggingface.co/',
+    },
+    {
+      name: 'TensorFlow',
+      icon: <Cpu className='h-6 w-6' />,
+      url: 'https://www.tensorflow.org/',
+    },
+    {
+      name: 'PyTorch',
+      icon: <Flame className='h-6 w-6' />,
+      url: 'https://pytorch.org/',
     },
   ];
 
   const otherSkills = [
-    { name: 'GitLab', icon: <CodeBracketIcon className='h-6 w-6' /> },
-    { name: 'Linux', icon: <CommandLineIcon className='h-6 w-6' /> },
-    { name: 'Windows Server', icon: <ServerIcon className='h-6 w-6' /> },
-    { name: 'VMware', icon: <ServerIcon className='h-6 w-6' /> },
-    { name: 'Docker', icon: <ServerIcon className='h-6 w-6' /> },
-    { name: 'Canva', icon: <PaintBrushIcon className='h-6 w-6' /> },
-    { name: 'Adobe Photoshop', icon: <PaintBrushIcon className='h-6 w-6' /> },
-    { name: 'Illustrator', icon: <PaintBrushIcon className='h-6 w-6' /> },
-    { name: 'Microsoft Office', icon: <CodeBracketIcon className='h-6 w-6' /> },
+    {
+      name: 'GitLab',
+      icon: <Gitlab className='h-6 w-6' />,
+      url: 'https://gitlab.com/',
+    },
+    {
+      name: 'GitHub',
+      icon: <Github className='h-6 w-6' />,
+      url: 'https://github.com/',
+    },
+    {
+      name: 'Linux',
+      icon: <Terminal className='h-6 w-6' />,
+      url: 'https://www.linux.org/',
+    },
+    {
+      name: 'Windows Server',
+      icon: <Server className='h-6 w-6' />,
+      url: 'https://www.microsoft.com/en-us/windows-server',
+    },
+    {
+      name: 'VMware',
+      icon: <Boxes className='h-6 w-6' />,
+      url: 'https://www.vmware.com/',
+    },
+    {
+      name: 'Docker',
+      icon: <Boxes className='h-6 w-6' />,
+      url: 'https://www.docker.com/',
+    },
+    {
+      name: 'Canva',
+      icon: <Palette className='h-6 w-6' />,
+      url: 'https://www.canva.com/',
+    },
+    {
+      name: 'Adobe Photoshop',
+      icon: <Paintbrush className='h-6 w-6' />,
+      url: 'https://www.adobe.com/products/photoshop.html',
+    },
+    {
+      name: 'Illustrator',
+      icon: <Paintbrush className='h-6 w-6' />,
+      url: 'https://www.adobe.com/products/illustrator.html',
+    },
+    {
+      name: 'Microsoft Office',
+      icon: <FileJson className='h-6 w-6' />,
+      url: 'https://www.microsoft.com/microsoft-365',
+    },
   ];
+
+  interface Skill {
+    name: string;
+    icon: React.ReactNode;
+    url: string;
+  }
+
+  // Reusable skill card component
+  const SkillCard = ({ skill }: { skill: Skill }) => (
+    <a
+      href={skill.url}
+      target='_blank'
+      rel='noopener noreferrer'
+      className='block transition-all hover:scale-105'
+    >
+      <Card className='hover:border-primary hover:shadow-md transition-all'>
+        <CardContent className='p-4 flex items-center'>
+          <div className='mr-3 text-primary'>{skill.icon}</div>
+          <span className='font-medium'>{skill.name}</span>
+          <ExternalLink className='h-4 w-4 ml-auto text-muted-foreground' />
+        </CardContent>
+      </Card>
+    </a>
+  );
 
   return (
     <section className='py-20 pt-32'>
@@ -84,12 +324,7 @@ export function SkillsPage() {
             </h3>
             <div className='grid grid-cols-2 gap-4'>
               {frontendSkills.map((skill) => (
-                <Card key={skill.name}>
-                  <CardContent className='p-4 flex items-center'>
-                    <div className='mr-3 text-primary'>{skill.icon}</div>
-                    <span className='font-medium'>{skill.name}</span>
-                  </CardContent>
-                </Card>
+                <SkillCard key={skill.name} skill={skill} />
               ))}
             </div>
           </div>
@@ -101,12 +336,7 @@ export function SkillsPage() {
             </h3>
             <div className='grid grid-cols-2 gap-4'>
               {backendSkills.map((skill) => (
-                <Card key={skill.name}>
-                  <CardContent className='p-4 flex items-center'>
-                    <div className='mr-3 text-primary'>{skill.icon}</div>
-                    <span className='font-medium'>{skill.name}</span>
-                  </CardContent>
-                </Card>
+                <SkillCard key={skill.name} skill={skill} />
               ))}
             </div>
           </div>
@@ -118,12 +348,20 @@ export function SkillsPage() {
             </h3>
             <div className='grid grid-cols-2 gap-4'>
               {mobileSkills.map((skill) => (
-                <Card key={skill.name}>
-                  <CardContent className='p-4 flex items-center'>
-                    <div className='mr-3 text-primary'>{skill.icon}</div>
-                    <span className='font-medium'>{skill.name}</span>
-                  </CardContent>
-                </Card>
+                <SkillCard key={skill.name} skill={skill} />
+              ))}
+            </div>
+          </div>
+
+          {/* AI Skills Section */}
+          <div>
+            <h3 className='text-xl font-bold mb-6 flex items-center'>
+              <SparklesIcon className='mr-2 h-5 w-5 text-primary' />
+              Generative AI
+            </h3>
+            <div className='grid grid-cols-2 gap-4'>
+              {aiSkills.map((skill) => (
+                <SkillCard key={skill.name} skill={skill} />
               ))}
             </div>
           </div>
@@ -135,12 +373,7 @@ export function SkillsPage() {
             </h3>
             <div className='grid grid-cols-2 gap-4'>
               {otherSkills.map((skill) => (
-                <Card key={skill.name}>
-                  <CardContent className='p-4 flex items-center'>
-                    <div className='mr-3 text-primary'>{skill.icon}</div>
-                    <span className='font-medium'>{skill.name}</span>
-                  </CardContent>
-                </Card>
+                <SkillCard key={skill.name} skill={skill} />
               ))}
             </div>
           </div>

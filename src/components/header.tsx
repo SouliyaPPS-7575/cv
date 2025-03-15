@@ -3,10 +3,13 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { ThemeToggle } from './theme-toggle';
+import { useDownloadCV } from '~/hooks/useDownloadCV';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const downloadCV = useDownloadCV();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +77,7 @@ export function Header() {
                 {link.name}
               </Link>
             ))}
-            <Button>Download CV</Button>
+            <Button onClick={downloadCV}>Download CV</Button>
           </nav>
         </div>
       </div>
@@ -94,7 +97,9 @@ export function Header() {
                 {link.name}
               </Link>
             ))}
-            <Button className='mt-4'>Download CV</Button>
+            <Button className='mt-4' onClick={downloadCV}>
+              Download CV
+            </Button>
           </nav>
         </div>
       )}

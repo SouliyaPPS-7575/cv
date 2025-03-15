@@ -16,12 +16,24 @@ function Home() {
   return (
     <main className='min-h-screen'>
       <HomePage />
-      <AboutPage />
-      <SkillsPage />
-      <EducationPage />
-      <ExperiencePage />
-      <ProjectsPage />
-      <ContactPage />
+      <div id='about'>
+        <AboutPage />
+      </div>
+      <div id='skills'>
+        <SkillsPage />
+      </div>
+      <div id='education'>
+        <EducationPage />
+      </div>
+      <div id='experience'>
+        <ExperiencePage />
+      </div>
+      <div id='projects'>
+        <ProjectsPage />
+      </div>
+      <div id='contact'>
+        <ContactPage />
+      </div>
       <Footer />
     </main>
   );

@@ -27,6 +27,7 @@ import 'class-variance-authority';
 import 'clsx';
 import 'tailwind-merge';
 import '@heroicons/react/24/outline';
+import 'lucide-react';
 import 'isbot';
 import 'react-dom/server';
 import 'node:async_hooks';

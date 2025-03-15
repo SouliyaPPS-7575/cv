@@ -21,7 +21,7 @@ export function Footer() {
 
           <div className='flex space-x-4'>
             <a
-              href='https://github.com'
+              href='https://github.com/SouliyaPPS-7575'
               className='rounded-full p-2 hover:bg-muted-foreground/10 transition-colors'
               aria-label='GitHub'
             >
@@ -36,24 +36,26 @@ export function Footer() {
               </svg>
             </a>
             <a
-              href='https://linkedin.com'
-              className='rounded-full p-2 hover:bg-muted-foreground/10 transition-colors'
-              aria-label='LinkedIn'
+              href='https://web.facebook.com/profile.php?id=100071181054389'
+              className='rounded-full p-2 hover:bg-muted transition-colors mt-[-2px]'
+              aria-label='Facebook'
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
-                width='20'
-                height='20'
+                width='25'
+                height='25'
                 fill='currentColor'
                 viewBox='0 0 24 24'
               >
-                <path d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z' />
+                <path d='M22 12.07C22 6.492 17.523 2 12 2S2 6.492 2 12.07c0 4.99 3.657 9.126 8.438 9.884V14.89H7.898v-2.818h2.54V9.844c0-2.51 1.49-3.894 3.773-3.894 1.094 0 2.238.195 2.238.195v2.479h-1.26c-1.243 0-1.63.774-1.63 1.568v1.89h2.773l-.443 2.818h-2.33v7.063C18.342 21.197 22 17.06 22 12.07z' />
               </svg>
             </a>
             <a
-              href='tel:+85620-78287509'
-              className='rounded-full p-2 hover:bg-muted-foreground/10 transition-colors'
-              aria-label='Phone'
+              href='https://wa.me/8562078287509'
+              className='rounded-full p-2 hover:bg-muted transition-colors'
+              aria-label='WhatsApp'
+              target='_blank'
+              rel='noopener noreferrer'
             >
               <PhoneIcon className='h-5 w-5' />
             </a>

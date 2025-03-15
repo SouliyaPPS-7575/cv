@@ -7,12 +7,16 @@ import {
 } from '@heroicons/react/24/outline';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import myphoto from '@/assets/myphoto.jpg';
+import { useDownloadCV } from '~/hooks/useDownloadCV';
 
 export const Route = createFileRoute('/about')({
   component: AboutPage,
 });
 
 export function AboutPage() {
+  const downloadCV = useDownloadCV();
+
   return (
     <section className='py-20 pt-32 bg-muted/30'>
       <div className='container mx-auto px-4'>
@@ -28,7 +32,7 @@ export function AboutPage() {
           <div className='relative'>
             <div className='relative z-10 overflow-hidden rounded-lg shadow-lg'>
               <img
-                src='https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-EI62ujv0AJwM7Inj0zJxw7ZblBYQQs.png'
+                src={myphoto}
                 alt='Souliya Phoupaseuth'
                 className='w-full h-auto object-cover'
               />
@@ -56,14 +60,36 @@ export function AboutPage() {
                 <span>Born on September 16, 1997</span>
               </div>
               <div className='flex items-center gap-3'>
-                <MapPinIcon className='h-5 w-5 text-primary' />
-                <span>
-                  Pakhaow Village, Xaythany District, Vientiane Capital, Laos
-                </span>
+                <a
+                  href='https://www.google.com/maps/search/?api=1&query=Pakhaow+Village,+Xaythany+District,+Vientiane+Capital,+Laos'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-3 hover:text-blue-500 transition-colors'
+                >
+                  <MapPinIcon className='h-5 w-5 text-primary' />
+                  <span>
+                    Pakhaow Village, Xaythany District, Vientiane Capital, Laos
+                  </span>
+                </a>
               </div>
               <div className='flex items-center gap-3'>
-                <PhoneIcon className='h-5 w-5 text-primary' />
-                <span>(+856) 20-78287509, 91182391</span>
+                <a
+                  href='https://wa.me/8562078287509'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-3 hover:text-green-500 transition-colors'
+                >
+                  <PhoneIcon className='h-5 w-5 text-primary' />
+                  <span>(+856) 20-78287509</span>
+                </a>
+                <a
+                  href='https://wa.me/8562091182391'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='hover:text-green-500 transition-colors'
+                >
+                  <span>, 91182391</span>
+                </a>
               </div>
               <div className='flex items-center gap-3'>
                 <EnvelopeIcon className='h-5 w-5 text-primary' />
@@ -86,7 +112,9 @@ export function AboutPage() {
               </Card>
             </div>
 
-            <Button size='lg'>Download CV</Button>
+            <Button size='lg' onClick={downloadCV}>
+              Download CV
+            </Button>
           </div>
         </div>
       </div>
