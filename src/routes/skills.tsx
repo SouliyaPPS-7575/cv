@@ -215,16 +215,6 @@ export function SkillsPage() {
       icon: <Workflow className='h-6 w-6' />,
       url: 'https://langchain.com/',
     },
-    {
-      name: 'Hugging Face',
-      icon: <Sparkles className='h-6 w-6' />,
-      url: 'https://huggingface.co/',
-    },
-    {
-      name: 'TensorFlow',
-      icon: <Cpu className='h-6 w-6' />,
-      url: 'https://www.tensorflow.org/',
-    },
   ];
 
   const otherSkills = [

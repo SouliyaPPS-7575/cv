@@ -4,6 +4,7 @@ import { Link } from '@tanstack/react-router';
 import { useEffect, useState } from 'react';
 import { ThemeToggle } from './theme-toggle';
 import { useDownloadCV } from '~/hooks/useDownloadCV';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,11 +14,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -41,9 +38,9 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isMenuOpen
           ? 'bg-background/80 backdrop-blur-md shadow-sm'
-          : 'bg-transparent'
+          : 'bg-background/0 backdrop-blur-0'
       }`}
     >
       <div className='container mx-auto px-4 py-4 flex items-center justify-between'>
@@ -82,27 +79,43 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className='fixed inset-0 top-16 bg-background z-40 p-4 md:hidden bg-slate-200'>
-          <nav className='flex flex-col space-y-4'>
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className='text-lg py-2 hover:text-primary transition-colors'
-                onClick={() => setIsMenuOpen(false)}
-                activeProps={{ className: 'text-primary' }}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Button className='mt-4' onClick={downloadCV}>
-              Download CV
-            </Button>
-          </nav>
-        </div>
-      )}
+      {/* Mobile Menu Animation */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className='fixed inset-0 top-16 bg-background/50 backdrop-blur-md z-40 p-4 md:hidden'
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <motion.nav
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className='flex flex-col space-y-4 bg-background/100 p-6 rounded-lg shadow-lg'
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+            >
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className='text-lg py-2 hover:text-primary transition-colors'
+                  onClick={() => setIsMenuOpen(false)}
+                  activeProps={{ className: 'text-primary' }}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Button className='mt-4' onClick={downloadCV}>
+                Download CV
+              </Button>
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
