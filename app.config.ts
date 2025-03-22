@@ -14,5 +14,8 @@ export default defineConfig({
         projects: ['./tsconfig.json'],
       }),
     ],
+    build: {
+      chunkSizeWarningLimit: 5000,
+    },
   },
 });

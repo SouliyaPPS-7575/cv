@@ -1,3 +1,5 @@
+import type React from 'react';
+
 import { createFileRoute } from '@tanstack/react-router';
 import {
   GlobeAltIcon,
@@ -34,6 +36,8 @@ import {
   Flame,
   Zap,
 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
 
 export const Route = createFileRoute('/skills')({
   component: SkillsPage,
@@ -221,11 +225,6 @@ export function SkillsPage() {
       icon: <Cpu className='h-6 w-6' />,
       url: 'https://www.tensorflow.org/',
     },
-    {
-      name: 'PyTorch',
-      icon: <Flame className='h-6 w-6' />,
-      url: 'https://pytorch.org/',
-    },
   ];
 
   const otherSkills = [
@@ -287,97 +286,276 @@ export function SkillsPage() {
     url: string;
   }
 
-  // Reusable skill card component
-  const SkillCard = ({ skill }: { skill: Skill }) => (
-    <a
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 10,
+        staggerChildren: 0.03,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 10,
+      },
+    },
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, rotate: -10 },
+    visible: {
+      scale: 1,
+      rotate: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 200,
+        damping: 10,
+      },
+    },
+    hover: {
+      rotate: 5,
+      scale: 1.1,
+      transition: {
+        type: 'spring',
+        stiffness: 400,
+        damping: 10,
+      },
+    },
+  };
+
+  // Reusable skill card component with animations
+  const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => (
+    <motion.a
       href={skill.url}
       target='_blank'
       rel='noopener noreferrer'
-      className='block transition-all hover:scale-105'
+      className='block'
+      variants={itemVariants}
+      whileHover={{
+        scale: 1.05,
+        transition: { type: 'spring', stiffness: 300, damping: 10 },
+      }}
+      custom={index}
     >
-      <Card className='hover:border-primary hover:shadow-md transition-all'>
+      <Card className='hover:border-primary hover:shadow-md transition-all h-full'>
         <CardContent className='p-4 flex items-center'>
-          <div className='mr-3 text-primary'>{skill.icon}</div>
+          <motion.div
+            className='mr-3 text-primary'
+            variants={iconVariants}
+            whileHover='hover'
+          >
+            {skill.icon}
+          </motion.div>
           <span className='font-medium'>{skill.name}</span>
-          <ExternalLink className='h-4 w-4 ml-auto text-muted-foreground' />
+          <motion.div
+            className='ml-auto'
+            initial={{ opacity: 0.5 }}
+            whileHover={{
+              opacity: 1,
+              x: 2,
+              transition: { duration: 0.2 },
+            }}
+          >
+            <ExternalLink className='h-4 w-4 text-muted-foreground' />
+          </motion.div>
         </CardContent>
       </Card>
-    </a>
+    </motion.a>
   );
 
+  // Background animation elements
+  const backgroundRef = useRef<HTMLDivElement>(null);
+
   return (
-    <section className='py-20 pt-32'>
+    <section className='py-20 pt-32 relative overflow-hidden'>
+      {/* Animated background elements */}
+      <div className='absolute inset-0 -z-10 overflow-hidden'>
+        <motion.div
+          className='absolute top-1/4 -left-20 w-60 h-60 rounded-full bg-primary/5 blur-3xl'
+          animate={{
+            x: [0, 30, 0],
+            y: [0, 20, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Number.POSITIVE_INFINITY,
+            repeatType: 'reverse',
+          }}
+        />
+        <motion.div
+          className='absolute bottom-1/3 -right-20 w-80 h-80 rounded-full bg-primary/5 blur-3xl'
+          animate={{
+            x: [0, -40, 0],
+            y: [0, -30, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Number.POSITIVE_INFINITY,
+            repeatType: 'reverse',
+          }}
+        />
+      </div>
+
       <div className='container mx-auto px-4'>
-        <div className='text-center mb-16'>
+        <motion.div
+          className='text-center mb-16'
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className='text-3xl font-bold mb-2'>My Skills</h2>
-          <div className='w-20 h-1 bg-primary mx-auto mb-6'></div>
-          <p className='text-muted-foreground max-w-2xl mx-auto'>
+          <motion.div
+            className='w-20 h-1 bg-primary mx-auto mb-6'
+            initial={{ width: 0 }}
+            animate={{ width: 80 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          ></motion.div>
+          <motion.p
+            className='text-muted-foreground max-w-2xl mx-auto'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             Here are my technical skills and technologies I've been working with
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-2'>
-          <div>
-            <h3 className='text-xl font-bold mb-6 flex items-center'>
-              <GlobeAltIcon className='mr-2 h-5 w-5 text-primary' />
+        <motion.div
+          className='grid gap-8 md:grid-cols-2 lg:grid-cols-2'
+          variants={containerVariants}
+          initial='hidden'
+          animate='visible'
+          ref={backgroundRef}
+        >
+          <motion.div variants={sectionVariants}>
+            <motion.h3
+              className='text-xl font-bold mb-6 flex items-center'
+              variants={itemVariants}
+            >
+              <motion.div variants={iconVariants} className='text-primary mr-2'>
+                <GlobeAltIcon className='h-5 w-5' />
+              </motion.div>
               Frontend Development
-            </h3>
-            <div className='grid grid-cols-2 gap-4'>
-              {frontendSkills.map((skill) => (
-                <SkillCard key={skill.name} skill={skill} />
+            </motion.h3>
+            <motion.div
+              className='grid grid-cols-2 gap-4'
+              variants={containerVariants}
+            >
+              {frontendSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div>
-            <h3 className='text-xl font-bold mb-6 flex items-center'>
-              <ServerIcon className='mr-2 h-5 w-5 text-primary' />
+          <motion.div variants={sectionVariants}>
+            <motion.h3
+              className='text-xl font-bold mb-6 flex items-center'
+              variants={itemVariants}
+            >
+              <motion.div variants={iconVariants} className='text-primary mr-2'>
+                <ServerIcon className='h-5 w-5' />
+              </motion.div>
               Backend Development
-            </h3>
-            <div className='grid grid-cols-2 gap-4'>
-              {backendSkills.map((skill) => (
-                <SkillCard key={skill.name} skill={skill} />
+            </motion.h3>
+            <motion.div
+              className='grid grid-cols-2 gap-4'
+              variants={containerVariants}
+            >
+              {backendSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div>
-            <h3 className='text-xl font-bold mb-6 flex items-center'>
-              <DevicePhoneMobileIcon className='mr-2 h-5 w-5 text-primary' />
+          <motion.div variants={sectionVariants}>
+            <motion.h3
+              className='text-xl font-bold mb-6 flex items-center'
+              variants={itemVariants}
+            >
+              <motion.div variants={iconVariants} className='text-primary mr-2'>
+                <DevicePhoneMobileIcon className='h-5 w-5' />
+              </motion.div>
               Mobile Development
-            </h3>
-            <div className='grid grid-cols-2 gap-4'>
-              {mobileSkills.map((skill) => (
-                <SkillCard key={skill.name} skill={skill} />
+            </motion.h3>
+            <motion.div
+              className='grid grid-cols-2 gap-4'
+              variants={containerVariants}
+            >
+              {mobileSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* AI Skills Section */}
-          <div>
-            <h3 className='text-xl font-bold mb-6 flex items-center'>
-              <SparklesIcon className='mr-2 h-5 w-5 text-primary' />
+          <motion.div variants={sectionVariants}>
+            <motion.h3
+              className='text-xl font-bold mb-6 flex items-center'
+              variants={itemVariants}
+            >
+              <motion.div variants={iconVariants} className='text-primary mr-2'>
+                <SparklesIcon className='h-5 w-5' />
+              </motion.div>
               Generative AI
-            </h3>
-            <div className='grid grid-cols-2 gap-4'>
-              {aiSkills.map((skill) => (
-                <SkillCard key={skill.name} skill={skill} />
+            </motion.h3>
+            <motion.div
+              className='grid grid-cols-2 gap-4'
+              variants={containerVariants}
+            >
+              {aiSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div>
-            <h3 className='text-xl font-bold mb-6 flex items-center'>
-              <PaintBrushIcon className='mr-2 h-5 w-5 text-primary' />
+          <motion.div
+            variants={sectionVariants}
+            className='md:col-span-2 lg:col-span-1'
+          >
+            <motion.h3
+              className='text-xl font-bold mb-6 flex items-center'
+              variants={itemVariants}
+            >
+              <motion.div variants={iconVariants} className='text-primary mr-2'>
+                <PaintBrushIcon className='h-5 w-5' />
+              </motion.div>
               Other Skills
-            </h3>
-            <div className='grid grid-cols-2 gap-4'>
-              {otherSkills.map((skill) => (
-                <SkillCard key={skill.name} skill={skill} />
+            </motion.h3>
+            <motion.div
+              className='grid grid-cols-2 gap-4'
+              variants={containerVariants}
+            >
+              {otherSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};export { h as default } from './chunks/nitro/nitro.mjs';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};export { a as default } from './chunks/nitro/nitro.mjs';
 import 'node:http';
 import 'node:https';
 import 'node:zlib';
@@ -28,6 +28,7 @@ import 'clsx';
 import 'tailwind-merge';
 import '@heroicons/react/24/outline';
 import 'lucide-react';
+import 'framer-motion';
 import 'isbot';
 import 'react-dom/server';
 import 'node:async_hooks';

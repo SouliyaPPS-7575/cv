@@ -84,7 +84,7 @@ export function Header() {
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className='fixed inset-0 top-16 bg-background z-40 p-4 md:hidden'>
+        <div className='fixed inset-0 top-16 bg-background z-40 p-4 md:hidden bg-slate-200'>
           <nav className='flex flex-col space-y-4'>
             {navLinks.map((link) => (
               <Link

@@ -20,6 +20,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['"Noto Sans Lao"', 'sans-serif'],
+        lao: ['"Noto Sans Lao"', 'Phetsarath OT', 'Lao UI', 'sans-serif'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

@@ -6,6 +6,10 @@ import {
   CodeBracketIcon,
 } from '@heroicons/react/24/outline';
 import { createFileRoute, Link } from '@tanstack/react-router';
+import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { AnimatedBackground } from '~/components/ui/animated-background';
+import { AnimatedTitle } from '~/components/ui/animated-title';
 
 export const Route = createFileRoute('/projects')({
   component: ProjectsPage,
@@ -233,76 +237,231 @@ export function ProjectsPage() {
     },
   ];
 
-  return (
-    <section className='py-20 pt-32 bg-muted/30'>
-      <div className='container mx-auto px-4'>
-        <div className='text-center mb-16'>
-          <h2 className='text-3xl font-bold mb-2'>My Projects</h2>
-          <div className='w-20 h-1 bg-primary mx-auto mb-6'></div>
-          <p className='text-muted-foreground max-w-2xl mx-auto'>
-            Here are some of my recent projects. Each project is a unique piece
-            of development
-          </p>
-        </div>
+  const containerRef = useRef<HTMLDivElement>(null);
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 10,
+      },
+    },
+    hover: {
+      y: -10,
+      transition: {
+        type: 'spring',
+        stiffness: 300,
+        damping: 15,
+      },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 10,
+      },
+    },
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.5,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
+  const badgeVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: (i: number) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 300,
+        damping: 15,
+        delay: 0.3 + i * 0.05,
+      },
+    }),
+    hover: {
+      scale: 1.05,
+      y: -2,
+      transition: {
+        type: 'spring',
+        stiffness: 400,
+        damping: 10,
+      },
+    },
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 300,
+        damping: 15,
+        delay: 0.5,
+      },
+    },
+    hover: {
+      scale: 1.05,
+      transition: {
+        type: 'spring',
+        stiffness: 400,
+        damping: 10,
+      },
+    },
+    tap: {
+      scale: 0.95,
+    },
+  };
+
+  return (
+    <section className='py-20 pt-32 bg-muted/30 relative overflow-hidden'>
+      <AnimatedBackground />
+
+      <div className='container mx-auto px-4'>
+        <AnimatedTitle
+          title='My Projects'
+          subtitle='Here are some of my recent projects. Each project is a unique piece of development'
+        />
+
+        <motion.div
+          className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'
+          variants={containerVariants}
+          initial='hidden'
+          animate='visible'
+          ref={containerRef}
+        >
           {projects.map((project, index) => (
-            <Card key={index} className='overflow-hidden group'>
-              <div className='relative overflow-hidden h-48'>
-                <img
-                  src={project.image || '/myphoto.jpg'}
-                  alt={project.title}
-                  className='w-full h-full aspect-[4/3] object-contain transition-transform duration-500 group-hover:scale-110'
-                  loading='lazy'
-                  onError={(e) => (e.currentTarget.src = '/placeholder.svg')}
-                />
-              </div>
-              <CardContent className='p-6'>
-                <h3 className='text-xl font-bold mb-2'>{project.title}</h3>
-                <p className='text-muted-foreground mb-4'>
-                  {project.description}
-                </p>
-                <div className='flex flex-wrap gap-2 mb-4'>
-                  {project.technologies.map((tech) => (
-                    <Badge key={tech} variant='outline'>
-                      {tech}
-                    </Badge>
-                  ))}
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              whileHover='hover'
+              custom={index}
+              viewport={{ once: true, margin: '-50px' }}
+            >
+              <Card className='overflow-hidden h-full flex flex-col'>
+                <div className='relative overflow-hidden h-48'>
+                  <motion.img
+                    src={project.image || '/myphoto.jpg'}
+                    alt={project.title}
+                    className='w-full h-full aspect-[4/3] object-contain'
+                    loading='lazy'
+                    onError={(e) => (e.currentTarget.src = '/placeholder.svg')}
+                    variants={imageVariants}
+                  />
                 </div>
-                <div className='flex gap-4'>
-                  {project.githubLink !== '#' && (
-                    <Link
-                      to={project.githubLink}
-                      target='_blank'
-                      className='flex items-center gap-2'
-                    >
-                      <Button
-                        variant='outline'
-                        size='sm'
-                        className='flex items-center gap-2'
+                <CardContent className='p-6 flex flex-col flex-grow'>
+                  <motion.h3
+                    className='text-xl font-bold mb-2'
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 + index * 0.05 }}
+                  >
+                    {project.title}
+                  </motion.h3>
+                  <motion.p
+                    className='text-muted-foreground mb-4'
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 + index * 0.05 }}
+                  >
+                    {project.description}
+                  </motion.p>
+                  <motion.div
+                    className='flex flex-wrap gap-2 mb-4'
+                    initial='hidden'
+                    animate='visible'
+                    variants={containerVariants}
+                  >
+                    {project.technologies.map((tech, techIndex) => (
+                      <motion.div
+                        key={tech}
+                        variants={badgeVariants}
+                        custom={techIndex}
+                        whileHover='hover'
                       >
-                        <CodeBracketIcon className='h-4 w-4' />
-                        Code
-                      </Button>
-                    </Link>
-                  )}
-                  {project.liveLink !== '#' && (
-                    <Link
-                      to={project.liveLink}
-                      target='_blank'
-                      className='flex items-center gap-2'
-                    >
-                      <Button size='sm' className='flex items-center gap-2'>
-                        <ArrowTopRightOnSquareIcon className='h-4 w-4' />
-                        Live Demo
-                      </Button>
-                    </Link>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+                        <Badge variant='outline'>{tech}</Badge>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                  <motion.div
+                    className='flex gap-4 mt-auto'
+                    initial='hidden'
+                    animate='visible'
+                    variants={containerVariants}
+                  >
+                    {project.githubLink !== '#' && (
+                      <motion.div
+                        variants={buttonVariants}
+                        whileHover='hover'
+                        whileTap='tap'
+                      >
+                        <Link
+                          to={project.githubLink}
+                          target='_blank'
+                          className='flex items-center gap-2'
+                        >
+                          <Button
+                            variant='outline'
+                            size='sm'
+                            className='flex items-center gap-2'
+                          >
+                            <CodeBracketIcon className='h-4 w-4' />
+                            Code
+                          </Button>
+                        </Link>
+                      </motion.div>
+                    )}
+                    {project.liveLink !== '#' && (
+                      <motion.div
+                        variants={buttonVariants}
+                        whileHover='hover'
+                        whileTap='tap'
+                      >
+                        <Link
+                          to={project.liveLink}
+                          target='_blank'
+                          className='flex items-center gap-2'
+                        >
+                          <Button size='sm' className='flex items-center gap-2'>
+                            <ArrowTopRightOnSquareIcon className='h-4 w-4' />
+                            Live Demo
+                          </Button>
+                        </Link>
+                      </motion.div>
+                    )}
+                  </motion.div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
