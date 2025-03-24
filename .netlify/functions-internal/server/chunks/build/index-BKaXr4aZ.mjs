@@ -27,8 +27,8 @@ import 'react';
 import 'class-variance-authority';
 import 'clsx';
 import 'tailwind-merge';
-import 'lucide-react';
 import 'framer-motion';
+import 'lucide-react';
 import 'isbot';
 import 'react-dom/server';
 import 'node:async_hooks';
@@ -42,4 +42,4 @@ const B = function() {
 };
 
 export { B as component };
-//# sourceMappingURL=index-D3He5RpP.mjs.map
+//# sourceMappingURL=index-BKaXr4aZ.mjs.map

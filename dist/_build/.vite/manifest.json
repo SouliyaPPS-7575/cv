@@ -1,17 +1,17 @@
 {
   "/Users/souliya/Documents/FullStackDev/Test/cv/src/styles/app.css": {
-    "file": "assets/app-COMorq6y.css",
+    "file": "assets/app-O1y6Wvj1.css",
     "src": "/Users/souliya/Documents/FullStackDev/Test/cv/src/styles/app.css"
   },
-  "_client-4L23LBtY.js": {
-    "file": "assets/client-4L23LBtY.js",
+  "_client-B6znMsbr.js": {
+    "file": "assets/client-B6znMsbr.js",
     "name": "client",
     "dynamicImports": [
       "src/routes/index.tsx?tsr-split=component"
     ],
     "assets": [
       "assets/myphoto-DRxYjnGP.jpg",
-      "assets/app-COMorq6y.css"
+      "assets/app-O1y6Wvj1.css"
     ]
   },
   "src/assets/myphoto.jpg": {
@@ -19,21 +19,21 @@
     "src": "src/assets/myphoto.jpg"
   },
   "src/routes/index.tsx?tsr-split=component": {
-    "file": "assets/index-B60CIdUH.js",
+    "file": "assets/index-DGxErLbg.js",
     "name": "index",
     "src": "src/routes/index.tsx?tsr-split=component",
     "isDynamicEntry": true,
     "imports": [
-      "_client-4L23LBtY.js"
+      "_client-B6znMsbr.js"
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-D3mQG2Mv.js",
+    "file": "assets/client-CEOQ94j9.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
     "imports": [
-      "_client-4L23LBtY.js"
+      "_client-B6znMsbr.js"
     ]
   }
 }

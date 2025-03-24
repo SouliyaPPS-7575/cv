@@ -47,7 +47,7 @@ export function ProjectsPage() {
         'TypeScript',
         'Ant Design UI',
       ],
-      liveLink: 'https://jdb-merchant.jdbbank.com.la',
+      liveLink: '#',
       githubLink: '#',
     },
     {
@@ -78,7 +78,7 @@ export function ProjectsPage() {
         'TypeScript',
         'Banking Systems',
       ],
-      liveLink: 'https://mobilebo.jdbbank.com.la/',
+      liveLink: '#',
       githubLink: '#',
     },
     {
@@ -93,7 +93,7 @@ export function ProjectsPage() {
         'TypeScript',
         'Banking Systems',
       ],
-      liveLink: 'https://fx.jdbbank.com.la/',
+      liveLink: '#',
       githubLink: '#',
     },
     {
@@ -123,8 +123,8 @@ export function ProjectsPage() {
         'Communication API',
         'Analytics',
       ],
-      liveLink: 'https://sms-gateway-bfes7.ondigitalocean.app/login',
-      githubLink: 'https://gitlab.com/souliya_pps/sms-gateway',
+      liveLink: '#',
+      githubLink: '#',
     },
     {
       title: 'CIN ສະຖາບັນຂົງຈື ມະຫາວິທະຍາໄລເເຫ່ງຊາດ',
@@ -138,7 +138,7 @@ export function ProjectsPage() {
         'Communication API',
         'Analytics',
       ],
-      liveLink: 'https://enroll.cinuollaos.com/',
+      liveLink: '#',
       githubLink: '#',
     },
     {
@@ -153,7 +153,7 @@ export function ProjectsPage() {
         'Communication API',
         'Analytics',
       ],
-      liveLink: 'https://member.mkrestaurant.la/',
+      liveLink: '#',
       githubLink: '#',
     },
     {
@@ -168,7 +168,7 @@ export function ProjectsPage() {
         'Communication API',
         'Analytics',
       ],
-      liveLink: 'https://member.mkrestaurant.la/',
+      liveLink: '#',
       githubLink: '#',
     },
     {

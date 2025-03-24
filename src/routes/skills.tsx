@@ -259,7 +259,7 @@ export function SkillsPage() {
       url: 'https://www.adobe.com/products/photoshop.html',
     },
     {
-      name: 'Illustrator',
+      name: 'Adobe Illustrator',
       icon: <Paintbrush className='h-6 w-6' />,
       url: 'https://www.adobe.com/products/illustrator.html',
     },
