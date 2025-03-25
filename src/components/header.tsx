@@ -88,7 +88,8 @@ export function Header() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className='fixed inset-0 top-16 bg-background/50 backdrop-blur-md z-40 p-4 md:hidden'
-            onClick={() => setIsMenuOpen(false)}
+            onClick={() => setIsMenuOpen(false)} // Close menu when clicking outside
+            onMouseLeave={() => setIsMenuOpen(false)} // Close menu when cursor leaves
           >
             <motion.nav
               initial={{ scale: 0.9, opacity: 0 }}
@@ -97,6 +98,7 @@ export function Header() {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className='flex flex-col space-y-4 bg-background/100 p-6 rounded-lg shadow-lg'
               onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+              onMouseLeave={() => setIsMenuOpen(false)} // Close menu when cursor leaves
             >
               {navLinks.map((link) => (
                 <Link
