@@ -3,8 +3,8 @@
     "file": "assets/app-O1y6Wvj1.css",
     "src": "/Users/souliya/Documents/FullStackDev/Test/cv/src/styles/app.css"
   },
-  "_client-B6znMsbr.js": {
-    "file": "assets/client-B6znMsbr.js",
+  "_client-8xCp16pK.js": {
+    "file": "assets/client-8xCp16pK.js",
     "name": "client",
     "dynamicImports": [
       "src/routes/index.tsx?tsr-split=component"
@@ -19,21 +19,21 @@
     "src": "src/assets/myphoto.jpg"
   },
   "src/routes/index.tsx?tsr-split=component": {
-    "file": "assets/index-DGxErLbg.js",
+    "file": "assets/index-DOME9YIn.js",
     "name": "index",
     "src": "src/routes/index.tsx?tsr-split=component",
     "isDynamicEntry": true,
     "imports": [
-      "_client-B6znMsbr.js"
+      "_client-8xCp16pK.js"
     ]
   },
   "virtual:$vinxi/handler/client": {
-    "file": "assets/client-CEOQ94j9.js",
+    "file": "assets/client-anDA3CXI.js",
     "name": "client",
     "src": "virtual:$vinxi/handler/client",
     "isEntry": true,
     "imports": [
-      "_client-B6znMsbr.js"
+      "_client-8xCp16pK.js"
     ]
   }
 }
