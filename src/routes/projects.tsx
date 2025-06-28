@@ -38,7 +38,7 @@ export function ProjectsPage() {
     {
       title: 'JDB Merchant',
       description:
-        'A merchant management system for JDB with comprehensive features for tracking and managing merchant accounts. Built with React Typescript and Ant Design UI.',
+        'JDB with comprehensive features for tracking and managing merchant accounts. Built with React Typescript and Ant Design UI.',
       image: 'https://i.ibb.co/ZpK1p6nX/merchant2.png',
       technologies: [
         'React.js',
@@ -144,7 +144,7 @@ export function ProjectsPage() {
     {
       title: 'MK Restaurant Member Card System',
       description:
-        'A website for Management of Restaurant Member Card System. Built with React Redux and Material UI.',
+        'Management of Restaurant Member Card System. Built with React Redux and Material UI.',
       image: 'https://i.ibb.co/QzgZZbq/mk2.png',
       technologies: [
         'React.js',
@@ -159,7 +159,7 @@ export function ProjectsPage() {
     {
       title: 'Miyazaki Restaurant Member Card System',
       description:
-        'A website for Management of Restaurant Member Card System. Built with React Redux and Material UI.',
+        'Management of Restaurant Member Card System. Built with React Redux and Material UI.',
       image: 'https://i.ibb.co/Q77Xf5B6/mk3.png',
       technologies: [
         'React.js',
@@ -174,7 +174,7 @@ export function ProjectsPage() {
     {
       title: 'SMG E-Document Management System',
       description:
-        'A website E-Document Management System. Built with React Redux and Ant Design UI.',
+        'E-Document Management System. Built with React Redux and Ant Design UI.',
       image: 'https://i.ibb.co/Jjq642X8/smg2.png',
       technologies: [
         'React.js',
@@ -189,7 +189,7 @@ export function ProjectsPage() {
     {
       title: 'SML Loan Management System',
       description:
-        'A website Loan Management System. Built with React Redux and Ant Design UI.',
+        'Website Loan Management System. Built with React Redux and Ant Design UI.',
       image: 'https://i.ibb.co/svXccjvh/sml2.png',
       technologies: [
         'React.js',
@@ -223,7 +223,7 @@ export function ProjectsPage() {
     {
       title: '2Earn Royalty Platform',
       description:
-        'A website for Management of Royalty Platform Points accumulation & Gift Redeem. Built with Tantack Start, Material UI, HeroUI and Tailwind CSS.',
+        'Royalty Platform Points accumulation & Gift Redeem. Built with Tantack Start, Material UI, HeroUI and Tailwind CSS.',
       image: 'https://i.ibb.co/23hjTCFX/Screenshot-2025-03-15-at-12-50-57.png',
       technologies: [
         'React.js',
@@ -232,8 +232,49 @@ export function ProjectsPage() {
         'HeroUI',
         'Tailwind CSS',
       ],
-      liveLink: 'http://2earn-customer.netlify.app/',
-      githubLink: 'https://github.com/SouliyaPPS-7575/2earn',
+      liveLink: '#',
+      githubLink: '#',
+    },
+    {
+      title: 'E-Commerce Web App',
+      description:
+        'E-Commerce Shops Order Products and Add Cart. Built with Tantack Start, Material UI and Pocketbase.',
+      image: 'https://i.ibb.co/GfZ15sX7/Screenshot-2025-06-28-at-10-43-37.png',
+      technologies: ['React Typescript', 'Tanstack Start', 'MUI', 'Pocketbase'],
+      liveLink: 'https://e-commerce-customer.netlify.app/',
+      githubLink: 'https://github.com/SouliyaPPS-7575/e-commerce-customer',
+    },
+    {
+      title: 'E-Commerce Admin Web',
+      description:
+        'Admin E-Commerce Shops Order Products and Add Cart. Built with React Admin UI, Material UI and Pocketbase.',
+      image: 'https://i.ibb.co/93qCSh9x/Screenshot-2025-06-28-at-12-07-24.png',
+      technologies: ['React Typescript', 'React Admin UI', 'MUI', 'Pocketbase'],
+      liveLink: 'https://bo-e-commmerce.netlify.app/',
+      githubLink: 'https://github.com/SouliyaPPS-7575/bo-e-commerce',
+    },
+    {
+      title: 'Laundry Back Office Web App',
+      description:
+        'Laundry Back Office Web App. Built with React Typescript, Ant Design UI, Tanstack Router, Tanstack Query',
+      image: 'https://i.ibb.co/S43DFV5D/Screenshot-2025-06-28-at-12-16-29.png',
+      technologies: [
+        'React Typescript',
+        'Ant Design UI',
+        'Tanstack Router',
+        'Tanstack Query',
+      ],
+      liveLink: 'https://laundry-bo-7bf8fc.gitlab.io/',
+      githubLink: 'https://gitlab.com/souliyapps-dev/laundry-bo',
+    },
+    {
+      title: '8Hex Trading Platform',
+      description:
+        'Revolutionize trading by providing an intelligent, automated platform that empowers traders to navigate the complexities of financial markets with confidence and efficiency',
+      image: 'https://i.ibb.co/gZLk9qNz/Screenshot-2025-06-28-at-12-23-45.png',
+      technologies: ['Next.js', 'Ant Design UI', 'Supabase'],
+      liveLink: 'https://web.8hex.pro/',
+      githubLink: '#',
     },
   ];
 

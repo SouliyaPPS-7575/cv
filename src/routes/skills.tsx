@@ -211,6 +211,11 @@ export function SkillsPage() {
       url: 'https://claude.ai/',
     },
     {
+      name: 'Gemini AI',
+      icon: <Sparkles className='h-6 w-6' />,
+      url: 'https://gemini.google.com/app',
+    },
+    {
       name: 'LangChain',
       icon: <Workflow className='h-6 w-6' />,
       url: 'https://langchain.com/',
