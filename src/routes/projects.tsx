@@ -245,7 +245,7 @@ export function ProjectsPage() {
       githubLink: 'https://github.com/SouliyaPPS-7575/e-commerce-customer',
     },
     {
-      title: 'E-Commerce Admin Web',
+      title: 'Admin Web E-Commerce',
       description:
         'Admin E-Commerce Shops Order Products and Add Cart. Built with React Admin UI, Material UI and Pocketbase.',
       image: 'https://i.ibb.co/93qCSh9x/Screenshot-2025-06-28-at-12-07-24.png',
@@ -275,6 +275,24 @@ export function ProjectsPage() {
       technologies: ['Next.js', 'Ant Design UI', 'Supabase'],
       liveLink: 'https://web.8hex.pro/',
       githubLink: '#',
+    },
+    {
+      title: 'Laundry Miss Clean and Spa Web App',
+      description:
+        'Laundry Miss Clean and Spa Web App. Built with React Typescript, Ant Design UI, Tanstack Router, Tanstack Query',
+      image: 'https://i.ibb.co/5Wqk2V84/Screenshot-2025-08-09-at-19-10-08.jpg',
+      technologies: ['React Typescript', 'Tanstack Start', 'MUI', 'Pocketbase'],
+      liveLink: 'https://laundry-miss-clean.netlify.app/',
+      githubLink: 'https://github.com/SouliyaPPS-7575/front-miss-clean-spa',
+    },
+    {
+      title: 'Admin Web Laundry Miss Clean and Spa',
+      description:
+        'Laundry Miss Clean and Spa Admin Web. Built with React Typescript, Ant Design UI, Tanstack Router, Tanstack Query',
+      image: 'https://i.ibb.co/yFCJyB7h/Screenshot-2025-08-09-at-20-15-56.jpg',
+      technologies: ['React Typescript', 'React Admin UI', 'MUI', 'Pocketbase'],
+      liveLink: 'https://bo-miss-clean-spa.netlify.app/',
+      githubLink: 'https://github.com/SouliyaPPS-7575/bo-miss-clean-spa',
     },
   ];
 
