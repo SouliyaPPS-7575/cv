@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "node scripts/check-build.mjs && vinxi start",
+    "start": "node scripts/check-build.mjs && node scripts/serve.mjs",
     "preview": "vinxi preview"
   },
   "dependencies": {
