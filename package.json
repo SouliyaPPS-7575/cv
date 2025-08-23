@@ -3,10 +3,14 @@
   "private": true,
   "sideEffects": false,
   "type": "module",
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "node scripts/check-build.mjs && vinxi start",
+    "preview": "vinxi preview"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

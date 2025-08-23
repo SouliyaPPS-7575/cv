@@ -8,6 +8,19 @@ It's deployed automagically with Netlify!
 
 - [Netlify](https://netlify.com/)
 
+## Deploy to Railway (SSR)
+
+- Build command: `npm run build`
+- Start command: `npm run start`
+- Env vars:
+  - `SERVER_PRESET=node` (selects a Node server build)
+  - Optional: `HOST=0.0.0.0` (bind publicly if needed)
+
+Notes:
+
+- Railway sets `PORT` automatically; the Node preset respects it.
+- Keep `SERVER_PRESET=netlify` when deploying to Netlify.
+
 ## Development
 
 From your terminal:
