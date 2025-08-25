@@ -241,7 +241,7 @@ export function ProjectsPage() {
         'E-Commerce Shops Order Products and Add Cart. Built with Tantack Start, Material UI and Pocketbase.',
       image: 'https://i.ibb.co/GfZ15sX7/Screenshot-2025-06-28-at-10-43-37.png',
       technologies: ['React Typescript', 'Tanstack Start', 'MUI', 'Pocketbase'],
-      liveLink: 'http://soysouvanhsbrown.com/',
+      liveLink: 'http://soysouvanhsbrown.netlify.app/',
       githubLink: 'https://github.com/SouliyaPPS-7575/e-commerce-customer',
     },
     {
@@ -250,7 +250,7 @@ export function ProjectsPage() {
         'Admin E-Commerce Shops Order Products and Add Cart. Built with React Admin UI, Material UI and Pocketbase.',
       image: 'https://i.ibb.co/93qCSh9x/Screenshot-2025-06-28-at-12-07-24.png',
       technologies: ['React Typescript', 'React Admin UI', 'MUI', 'Pocketbase'],
-      liveLink: 'http://soysb.com/',
+      liveLink: 'https://bo-soysb.netlify.app/',
       githubLink: 'https://github.com/SouliyaPPS-7575/bo-e-commerce',
     },
     {
