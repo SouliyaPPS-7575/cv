@@ -242,7 +242,7 @@ export function ProjectsPage() {
       image: 'https://i.ibb.co/GfZ15sX7/Screenshot-2025-06-28-at-10-43-37.png',
       technologies: ['React Typescript', 'Tanstack Start', 'MUI', 'Pocketbase'],
       liveLink: 'http://soysouvanhsbrown.netlify.app/',
-      githubLink: 'https://github.com/SouliyaPPS-7575/e-commerce-customer',
+      githubLink: '#',
     },
     {
       title: 'Admin Web E-Commerce',
@@ -251,7 +251,7 @@ export function ProjectsPage() {
       image: 'https://i.ibb.co/93qCSh9x/Screenshot-2025-06-28-at-12-07-24.png',
       technologies: ['React Typescript', 'React Admin UI', 'MUI', 'Pocketbase'],
       liveLink: 'https://bo-soysb.netlify.app/',
-      githubLink: 'https://github.com/SouliyaPPS-7575/bo-e-commerce',
+      githubLink: '#',
     },
     {
       title: 'Laundry Back Office Web App',
@@ -265,7 +265,7 @@ export function ProjectsPage() {
         'Tanstack Query',
       ],
       liveLink: 'https://laundry-bo-7bf8fc.gitlab.io/',
-      githubLink: 'https://gitlab.com/souliyapps-dev/laundry-bo',
+      githubLink: '#',
     },
     {
       title: '8Hex Trading Platform',
@@ -283,7 +283,7 @@ export function ProjectsPage() {
       image: 'https://i.ibb.co/5Wqk2V84/Screenshot-2025-08-09-at-19-10-08.jpg',
       technologies: ['React Typescript', 'Tanstack Start', 'MUI', 'Pocketbase'],
       liveLink: 'https://laundry-miss-clean.com/',
-      githubLink: 'https://github.com/SouliyaPPS-7575/front-miss-clean-spa',
+      githubLink: '#',
     },
     {
       title: 'Admin Web Laundry Miss Clean and Spa',
@@ -292,7 +292,7 @@ export function ProjectsPage() {
       image: 'https://i.ibb.co/yFCJyB7h/Screenshot-2025-08-09-at-20-15-56.jpg',
       technologies: ['React Typescript', 'React Admin UI', 'MUI', 'Pocketbase'],
       liveLink: 'https://miss-clean-spa.firebaseapp.com/',
-      githubLink: 'https://github.com/SouliyaPPS-7575/bo-miss-clean-spa',
+      githubLink: '#',
     },
   ];
 
