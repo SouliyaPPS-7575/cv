@@ -34,6 +34,7 @@ export const Route = createRootRouteWithContext<{
       ...seo({
         title: 'Souliya Phoupaseuth | Web Developer',
         description: `Portfolio website of Souliya Phoupaseuth, a Web Front-End Developer specializing in React, TypeScript, and modern web technologies.`,
+        googleSiteVerification: (import.meta as any).env?.VITE_GOOGLE_SITE_VERIFICATION,
       }),
     ],
     links: [

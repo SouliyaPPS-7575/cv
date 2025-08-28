@@ -1,42 +1,44 @@
 import type React from 'react';
 
-import { createFileRoute } from '@tanstack/react-router';
-import {
-  GlobeAltIcon,
-  ServerIcon,
-  DevicePhoneMobileIcon,
-  PaintBrushIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline';
 import { Card, CardContent } from '@/components/ui/card';
 import {
-  ExternalLink,
-  Code,
-  FileJson,
-  Braces,
-  LayoutGrid,
-  Workflow,
+  DevicePhoneMobileIcon,
+  GlobeAltIcon,
+  PaintBrushIcon,
+  ServerIcon,
+  SparklesIcon,
+} from '@heroicons/react/24/outline';
+import { createFileRoute } from '@tanstack/react-router';
+import { motion } from 'framer-motion';
+import {
+  Bot,
   Boxes,
-  Layers,
-  Rocket,
-  Paintbrush,
-  Palette,
-  SquareStack,
+  Braces,
+  Brain,
+  Cloud,
+  Code,
   Database,
-  Server,
+  ExternalLink,
+  FileJson,
+  Flame,
   Github,
   Gitlab,
-  Terminal,
+  Globe,
+  Layers,
+  LayoutGrid,
   MonitorSmartphone,
+  Paintbrush,
+  Palette,
+  Rocket,
+  Search,
+  Server,
   Smartphone,
   Sparkles,
-  Brain,
-  Bot,
-  Cpu,
-  Flame,
+  SquareStack,
+  Terminal,
+  Workflow,
   Zap,
 } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 export const Route = createFileRoute('/skills')({
@@ -193,12 +195,61 @@ export function SkillsPage() {
     },
   ];
 
+  // Hosting & Deployment skills
+  const hostingSkills = [
+    {
+      name: 'Netlify',
+      icon: <Server className='h-6 w-6' />,
+      url: 'https://www.netlify.com/',
+    },
+    {
+      name: 'Railway',
+      icon: <Server className='h-6 w-6' />,
+      url: 'https://railway.app/',
+    },
+    {
+      name: 'Firebase Hosting',
+      icon: <Flame className='h-6 w-6' />,
+      url: 'https://firebase.google.com/docs/hosting',
+    },
+  ];
+
   // AI skills section with specific icons and URLs
   const aiSkills = [
     {
-      name: 'OpenAI GPT',
+      name: 'Codex OpenAI AI Agent',
       icon: <Brain className='h-6 w-6' />,
-      url: 'https://openai.com/',
+      url: 'https://openai.com/codex/',
+    },
+    {
+      name: 'Gemini CLI Google AI Agent',
+      icon: <Bot className='h-6 w-6' />,
+      url: 'https://google-gemini.github.io/gemini-cli/',
+    },
+    {
+      name: 'Claude AI Agents Anthropic',
+      icon: <Bot className='h-6 w-6' />,
+      url: 'https://www.anthropic.com/solutions/agents',
+    },
+    {
+      name: 'Windsurf AI Coding Assistant',
+      icon: <Bot className='h-6 w-6' />,
+      url: 'https://windsurf.com/',
+    },
+    {
+      name: 'GitHub Copilot in VS Code',
+      icon: <Bot className='h-6 w-6' />,
+      url: 'https://code.visualstudio.com/docs/copilot/overview',
+    },
+    {
+      name: 'Warp Terminal AI Agent',
+      icon: <Terminal className='h-6 w-6' />,
+      url: 'https://www.warp.dev/',
+    },
+    {
+      name: 'Microsoft Copilot: Your AI companion',
+      icon: <Sparkles className='h-6 w-6' />,
+      url: 'https://copilot.microsoft.com/chats/tDL42Qp3xkC5zVk2VAF96',
     },
     {
       name: 'v0.dev AI',
@@ -206,19 +257,61 @@ export function SkillsPage() {
       url: 'https://v0.dev/',
     },
     {
-      name: 'Claude AI',
-      icon: <Bot className='h-6 w-6' />,
-      url: 'https://claude.ai/',
+      name: 'Bolt AI App Builder',
+      icon: <Sparkles className='h-6 w-6' />,
+      url: 'https://bolt.new/',
     },
     {
-      name: 'Gemini AI',
-      icon: <Sparkles className='h-6 w-6' />,
-      url: 'https://gemini.google.com/app',
+      name: 'n8n AI workflow automation',
+      icon: <Workflow className='h-6 w-6' />,
+      url: 'https://n8n.io/',
     },
     {
       name: 'LangChain',
       icon: <Workflow className='h-6 w-6' />,
       url: 'https://langchain.com/',
+    },
+  ];
+
+  // Domains & DNS skills
+  const domainSkills = [
+    {
+      name: 'Namecheap',
+      icon: <Globe className='h-6 w-6' />,
+      url: 'https://www.namecheap.com/',
+    },
+    {
+      name: 'Cloudflare',
+      icon: <Cloud className='h-6 w-6' />,
+      url: 'https://www.cloudflare.com/',
+    },
+    {
+      name: 'Netlify Domains',
+      icon: <Globe className='h-6 w-6' />,
+      url: 'https://docs.netlify.com/domains-https/custom-domains/',
+    },
+  ];
+
+  // App publishing skills
+  const publishingSkills = [
+    {
+      name: 'Google Play Console',
+      icon: <Smartphone className='h-6 w-6' />,
+      url: 'https://play.google.com/console/',
+    },
+    {
+      name: 'Apple App Store Connect',
+      icon: <MonitorSmartphone className='h-6 w-6' />,
+      url: 'https://developer.apple.com/account',
+    },
+  ];
+
+  // SEO skills
+  const seoSkills = [
+    {
+      name: 'Google Search Console',
+      icon: <Search className='h-6 w-6' />,
+      url: 'https://search.google.com/search-console/about',
     },
   ];
 
@@ -440,6 +533,9 @@ export function SkillsPage() {
           </motion.p>
         </motion.div>
 
+        {/* Skills Section */}
+
+        {/* Frontend Development Section */}
         <motion.div
           className='grid gap-8 md:grid-cols-2 lg:grid-cols-2'
           variants={containerVariants}
@@ -467,6 +563,7 @@ export function SkillsPage() {
             </motion.div>
           </motion.div>
 
+          {/* Hosting & Deployment Section */}
           <motion.div variants={sectionVariants}>
             <motion.h3
               className='text-xl font-bold mb-6 flex items-center'
@@ -475,18 +572,61 @@ export function SkillsPage() {
               <motion.div variants={iconVariants} className='text-primary mr-2'>
                 <ServerIcon className='h-5 w-5' />
               </motion.div>
-              Backend Development
+              Hosting & Deployment
             </motion.h3>
             <motion.div
               className='grid grid-cols-2 gap-4'
               variants={containerVariants}
             >
-              {backendSkills.map((skill, index) => (
+              {hostingSkills.map((skill, index) => (
                 <SkillCard key={skill.name} skill={skill} index={index} />
               ))}
             </motion.div>
           </motion.div>
 
+          {/* Domains & DNS Section */}
+          <motion.div variants={sectionVariants}>
+            <motion.h3
+              className='text-xl font-bold mb-6 flex items-center'
+              variants={itemVariants}
+            >
+              <motion.div variants={iconVariants} className='text-primary mr-2'>
+                <GlobeAltIcon className='h-5 w-5' />
+              </motion.div>
+              Domains & DNS
+            </motion.h3>
+            <motion.div
+              className='grid grid-cols-2 gap-4'
+              variants={containerVariants}
+            >
+              {domainSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* SEO Section */}
+          <motion.div variants={sectionVariants}>
+            <motion.h3
+              className='text-xl font-bold mb-6 flex items-center'
+              variants={itemVariants}
+            >
+              <motion.div variants={iconVariants} className='text-primary mr-2'>
+                <SparklesIcon className='h-5 w-5' />
+              </motion.div>
+              SEO
+            </motion.h3>
+            <motion.div
+              className='grid grid-cols-2 gap-4'
+              variants={containerVariants}
+            >
+              {seoSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Mobile Development Section */}
           <motion.div variants={sectionVariants}>
             <motion.h3
               className='text-xl font-bold mb-6 flex items-center'
@@ -507,6 +647,48 @@ export function SkillsPage() {
             </motion.div>
           </motion.div>
 
+          {/* App Publishing Section */}
+          <motion.div variants={sectionVariants}>
+            <motion.h3
+              className='text-xl font-bold mb-6 flex items-center'
+              variants={itemVariants}
+            >
+              <motion.div variants={iconVariants} className='text-primary mr-2'>
+                <DevicePhoneMobileIcon className='h-5 w-5' />
+              </motion.div>
+              App Publishing
+            </motion.h3>
+            <motion.div
+              className='grid grid-cols-2 gap-4'
+              variants={containerVariants}
+            >
+              {publishingSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Backend Development Section */}
+          <motion.div variants={sectionVariants}>
+            <motion.h3
+              className='text-xl font-bold mb-6 flex items-center'
+              variants={itemVariants}
+            >
+              <motion.div variants={iconVariants} className='text-primary mr-2'>
+                <ServerIcon className='h-5 w-5' />
+              </motion.div>
+              Backend Development
+            </motion.h3>
+            <motion.div
+              className='grid grid-cols-2 gap-4'
+              variants={containerVariants}
+            >
+              {backendSkills.map((skill, index) => (
+                <SkillCard key={skill.name} skill={skill} index={index} />
+              ))}
+            </motion.div>
+          </motion.div>
+
           {/* AI Skills Section */}
           <motion.div variants={sectionVariants}>
             <motion.h3
@@ -516,7 +698,7 @@ export function SkillsPage() {
               <motion.div variants={iconVariants} className='text-primary mr-2'>
                 <SparklesIcon className='h-5 w-5' />
               </motion.div>
-              Generative AI
+              Agentic AI
             </motion.h3>
             <motion.div
               className='grid grid-cols-2 gap-4'

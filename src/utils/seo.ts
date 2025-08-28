@@ -3,16 +3,21 @@ export const seo = ({
   description,
   keywords,
   image,
+  googleSiteVerification,
 }: {
   title: string
   description?: string
   image?: string
   keywords?: string
+  googleSiteVerification?: string
 }) => {
   const tags = [
     { title },
     { name: 'description', content: description },
     { name: 'keywords', content: keywords },
+    googleSiteVerification
+      ? { name: 'google-site-verification', content: googleSiteVerification }
+      : undefined,
     { name: 'twitter:title', content: title },
     { name: 'twitter:description', content: description },
     { name: 'twitter:creator', content: '@tannerlinsley' },
@@ -29,5 +34,6 @@ export const seo = ({
       : []),
   ]
 
-  return tags
+  // Filter out any undefined entries
+  return tags.filter(Boolean) as { name?: string; content?: string; title?: string }[]
 }
